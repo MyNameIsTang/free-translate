@@ -1,0 +1,37 @@
+{
+  "short_name": "Translate",
+  "name": "FreeTranslate",
+  "version": "0.1",
+  "manifest_version": 3,
+  "icons": {
+    "192": "vite.svg"
+  },
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "background": {
+    "service_worker": "service-worker.bundle.js"
+  },
+  "content_script": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.bundle.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "permissions": ["activeTab", "scripting", "offscreen"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "commands": {
+    "open-tab": {
+      "suggested_key": {
+        "default": "Alt+T",
+        "mac": "Alt+T"
+      },
+      "description": "Open developer.chrome.com"
+    }
+  }
+}
